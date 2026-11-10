@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+
+    srand(time(0));  // Initialize random number generator
+
+    int randomnumber = (rand() % 100) + 1;
+    // Generate random number from 1 to 100
+
+    int no_of_guesses = 0;
+    int guessed_number;
+
+    do {
+        printf("Guess the number: ");
+        scanf("%d", &guessed_number);
+
+        if (guessed_number > randomnumber) {
+            printf("Enter a lower number\n");
+        }
+
+        else if (guessed_number < randomnumber) {
+            printf("Enter a higher number\n");
+        }
+
+        else {
+            printf("Congratulations!!\n");
+        }
+
+        no_of_guesses++;
+
+    } while (guessed_number != randomnumber);
+
+    printf("You guessed the number in %d guesses", no_of_guesses);
+
+    return 0;
+}
